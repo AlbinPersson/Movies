@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 function Navbar() {
@@ -5,11 +6,9 @@ function Navbar() {
     <Container>
       <Logo src="netflix-logo.png" />
       <Nav>
-        <ul>
-          <li>Home</li>
-          <li>Series</li>
-          <li>Movies</li>
-        </ul>
+        <Link to="/home">Home</Link>
+        <Link to="/series">Series</Link>
+        <Link to="/movies">Movies</Link>
       </Nav>
     </Container>
   );
@@ -32,18 +31,16 @@ const Nav = styled.nav`
   margin-left: 40px;
   display: grid;
   align-items: center;
-  & ul {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-  & li {
+  grid-template-columns: repeat(3, 1fr);
+  & a {
+    text-decoration: none;
     list-style-type: none;
     color: #fff;
     cursor: pointer;
     transition: all 0.1s ease-in-out;
 
     &:hover {
-      transform: scale(1.08);
+      transform: scale(1.1);
     }
   }
 `;
