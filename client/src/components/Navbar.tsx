@@ -39,5 +39,11 @@ const Nav = styled.nav`
   & li {
     list-style-type: none;
     color: #fff;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+      transform: scale(1.08);
+    }
   }
 `;
