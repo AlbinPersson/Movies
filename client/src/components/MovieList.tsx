@@ -33,4 +33,10 @@ const Poster = styled.img`
   width: 200px;
   height: 150px;
   border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
