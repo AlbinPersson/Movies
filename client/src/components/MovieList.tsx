@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { getMovies } from "services/fakeMovieService";
 import { Movie } from "types";
 
 function MovieList() {
   const [movies, setMovies] = useState<Movie[]>([]);
+  const history = useHistory();
 
   useEffect(() => {
     const movies = getMovies();
@@ -14,7 +16,11 @@ function MovieList() {
   return (
     <Container>
       {movies.map((movie) => (
-        <Poster key={movie._id} src={movie.poster} />
+        <Poster
+          key={movie._id}
+          src={movie.poster}
+          onClick={() => history.push(`/${movie._id}`)}
+        />
       ))}
     </Container>
   );

@@ -6,7 +6,7 @@ function Navbar() {
     <Container>
       <Logo src="netflix-logo.png" />
       <Nav>
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/series">Series</Link>
         <Link to="/movies">Movies</Link>
       </Nav>
@@ -35,7 +35,6 @@ const Nav = styled.nav`
   & a {
     text-decoration: none;
     list-style-type: none;
-    color: #fff;
     cursor: pointer;
     transition: all 0.1s ease-in-out;
 
