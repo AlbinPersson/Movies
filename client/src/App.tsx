@@ -1,12 +1,14 @@
 import { Route, Switch, Redirect } from "react-router-dom";
+import { useState } from "react";
 import Navbar from "components/Navbar";
 import MovieList from "./components/MovieList";
 import Movie from "components/MovieDetails";
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState("");
   return (
     <div>
-      <Navbar />
+      <Navbar searchQuery={searchQuery} onSearch={setSearchQuery} />
       <Switch>
         <Route path="/not-found">
           <h1>NOT FOUND</h1>
@@ -15,7 +17,7 @@ function App() {
           <Movie />
         </Route>
         <Route path="/">
-          <MovieList />
+          <MovieList searchQuery={searchQuery} />
         </Route>
         <Route path="/?category=series" />
         <Route path="/?category=movies" />

@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import SearchBox from "./common/SearchBox";
 
-function Navbar() {
+interface Props {
+  searchQuery: string;
+  onSearch: (searchQuery: string) => void;
+}
+
+function Navbar({ searchQuery, onSearch }: Props) {
   return (
     <Container>
       <Logo src="netflix-logo.png" />
@@ -10,6 +16,7 @@ function Navbar() {
         <Link to="/?category=serie">Series</Link>
         <Link to="/?category=movie">Movies</Link>
       </Nav>
+      <SearchBox value={searchQuery} onChange={onSearch} />
     </Container>
   );
 }
@@ -17,8 +24,10 @@ function Navbar() {
 export default Navbar;
 
 const Container = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr;
+  align-items: center;
   height: 80px;
-  display: flex;
 `;
 
 const Logo = styled.img`

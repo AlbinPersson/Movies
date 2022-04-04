@@ -5,7 +5,11 @@ import { useHistory, useLocation } from "react-router-dom";
 import { getMovies } from "services/fakeMovieService";
 import { Movie } from "types";
 
-function MovieList() {
+interface Props {
+  searchQuery: string;
+}
+
+function MovieList({ searchQuery }: Props) {
   const [movies, setMovies] = useState<Movie[]>([]);
   const history = useHistory();
   const { search } = useLocation();
@@ -16,9 +20,13 @@ function MovieList() {
     setMovies(movies);
   }, []);
 
-  const filtredMovies = selectedCategory
+  let filtredMovies = selectedCategory
     ? movies.filter((m) => m.category === selectedCategory)
     : movies;
+
+  filtredMovies = filtredMovies.filter((m) =>
+    m.title.toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase())
+  );
 
   return (
     <Container>
