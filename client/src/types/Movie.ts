@@ -8,6 +8,7 @@ export enum Category {
 export interface Movie {
   _id: string;
   title: string;
+  desc: string;
   poster: string;
   genre: Genre;
   category: Category;

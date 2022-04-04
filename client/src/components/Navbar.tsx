@@ -27,7 +27,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 2fr 1fr;
   align-items: center;
-  height: 80px;
+  height: 14vh;
 `;
 
 const Logo = styled.img`
