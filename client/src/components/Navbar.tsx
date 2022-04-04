@@ -7,8 +7,8 @@ function Navbar() {
       <Logo src="netflix-logo.png" />
       <Nav>
         <Link to="/">Home</Link>
-        <Link to="/series">Series</Link>
-        <Link to="/movies">Movies</Link>
+        <Link to="/?category=serie">Series</Link>
+        <Link to="/?category=movie">Movies</Link>
       </Nav>
     </Container>
   );

@@ -1,21 +1,28 @@
 import styled from "styled-components";
+import qs from "query-string";
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { getMovies } from "services/fakeMovieService";
 import { Movie } from "types";
 
 function MovieList() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const history = useHistory();
+  const { search } = useLocation();
+  const { category: selectedCategory } = qs.parse(search);
 
   useEffect(() => {
     const movies = getMovies();
     setMovies(movies);
   }, []);
 
+  const filtredMovies = selectedCategory
+    ? movies.filter((m) => m.category === selectedCategory)
+    : movies;
+
   return (
     <Container>
-      {movies.map((movie) => (
+      {filtredMovies.map((movie) => (
         <Poster
           key={movie._id}
           src={movie.poster}

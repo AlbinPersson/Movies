@@ -17,8 +17,8 @@ function App() {
         <Route path="/">
           <MovieList />
         </Route>
-        <Route path="/series" />
-        <Route path="/movies" />
+        <Route path="/?category=series" />
+        <Route path="/?category=movies" />
         <Redirect to="/" />
       </Switch>
     </div>
