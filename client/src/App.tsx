@@ -2,7 +2,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "components/Navbar";
 import MovieList from "./components/MovieList";
-import Movie from "components/MovieDetails";
+import MovieDetails from "components/MovieDetails";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -14,13 +14,11 @@ function App() {
           <h1>NOT FOUND</h1>
         </Route>
         <Route path="/:id">
-          <Movie />
+          <MovieDetails />
         </Route>
         <Route path="/">
           <MovieList searchQuery={searchQuery} />
         </Route>
-        <Route path="/?category=series" />
-        <Route path="/?category=movies" />
         <Redirect to="/" />
       </Switch>
     </div>
@@ -28,3 +26,8 @@ function App() {
 }
 
 export default App;
+
+{
+  /* <Route path="/?category=series" />
+        <Route path="/?category=movies" /> */
+}

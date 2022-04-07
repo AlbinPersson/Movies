@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useHistory, useLocation, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { getMovie } from "services/fakeMovieService";
 import styled from "styled-components";
 import { Movie } from "types";
@@ -51,12 +51,10 @@ const Container = styled.div`
         font-weight: 900;
         padding-top: 32px;
         align-self: center;
-
         text-align: center;
       }
       & p {
         width: 70%;
-        margin-top: 16px;
       }
     }
   }
